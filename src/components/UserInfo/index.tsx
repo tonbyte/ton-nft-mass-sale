@@ -5,7 +5,7 @@ import Select from 'react-select';
 import { useState } from "react";
 import './index.css';
 import '../../app.css';
-import { useUserContext } from "../../userContext";
+import { useUserContext } from "../../context/userContext";
 import { getCollectionRoyalty } from "../../getCollectionRoyalty";
 
 const options = [
@@ -142,7 +142,7 @@ export function UserData() {
                         userAddress === "" ? (
                             <p>--</p>
                         ) : (
-                            <p><a target="_blank" href={`https://testnet.tonscan.org/address/${userAddress}`}>{userAddress}</a></p>
+                            <p><a target="_blank" href={`https://${user.testnet ? "testnet." : ""}tonscan.org/address/${userAddress}`}>{userAddress}</a></p>
                         )
                     }
 
@@ -154,7 +154,7 @@ export function UserData() {
                         userCollectionAddress === "" ? (
                             <p>--</p>
                         ) : (
-                            <p><a target="_blank" href={`https://testnet.tonscan.org/address/${userCollectionAddress}`}>{userCollectionAddress}</a></p>
+                            <p><a target="_blank" href={`https://${user.testnet ? "testnet." : ""}tonscan.org/address/${userCollectionAddress}`}>{userCollectionAddress}</a></p>
                         )
                     }
                 </div>

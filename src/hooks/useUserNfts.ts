@@ -5,7 +5,7 @@ import axios from "axios"
 export const ItemsLimit = 250;
 const previewQuality = 2;
 
-export function useUserNfts(userAddress: string, collectionAddress: string) {
+export function useUserNfts(testnet: boolean, userAddress: string, collectionAddress: string) {
     const [userNfts, setUserNfts] = useState<INftItem[]>([]);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -19,7 +19,7 @@ export function useUserNfts(userAddress: string, collectionAddress: string) {
         }
 
         setIsLoading(true);
-        const url = `https://testnet.tonapi.io/v2/accounts/${userAddress.trim()}/nfts?collection=${collectionAddress.trim()}&limit=${ItemsLimit}&offset=0&indirect_ownership=false`;
+        const url = `https://${testnet ? "testnet." : ""}tonapi.io/v2/accounts/${userAddress.trim()}/nfts?collection=${collectionAddress.trim()}&limit=${ItemsLimit}&offset=0&indirect_ownership=false`;
         
         axios.get(url).then((response) => {
             setIsLoading(false);

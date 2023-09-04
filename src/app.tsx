@@ -1,10 +1,10 @@
 import './app.css';
 
 import { NftItemsList } from './components/NftItemsList';
-import { UserContextProvider, useUserContext } from './userContext';
+import { UserContextProvider, useUserContext } from './context/userContext';
 import { UserData } from './components/UserInfo';
-import { ItemsContextProvider } from './itemsContext';
-import { Sell } from './components/Sell';
+import { ItemsContextProvider } from './context/itemsContext';
+import { Seller } from './components/SaleSettings/Seller';
 
 function App() {
     return (
@@ -21,7 +21,7 @@ function App() {
           <hr />
           <ItemsContextProvider>
             <div className="Board">
-              <Sell />
+              <Seller />
               <NftItemsList />
             </div>
           </ItemsContextProvider>

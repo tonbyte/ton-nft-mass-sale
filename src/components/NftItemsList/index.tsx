@@ -2,15 +2,15 @@ import { useEffect } from 'react';
 import './index.css';
 import { NftItem } from "./NftItem";
 import { useUserNfts } from '../../hooks/useUserNfts';
-import { useUserContext } from '../../userContext';
+import { useUserContext } from '../../context/userContext';
 import { INftItem } from '../../models';
-import { useItemsContext } from '../../itemsContext';
+import { useItemsContext } from '../../context/itemsContext';
 
 export function NftItemsList() {
     const {user} = useUserContext();
     const {items, setItems} = useItemsContext();
     
-    const { userNfts, isLoading } = useUserNfts(user.userAddress?.toString(false), user.collectionAddress);
+    const { userNfts, isLoading } = useUserNfts(user.testnet, user.userAddress?.toString(false), user.collectionAddress);
 
     useEffect(() => {
         console.log("updated items");
@@ -106,7 +106,7 @@ export function NftItemsList() {
           </div>
           {
             user.deployingSales && (
-              <p>* click on item on sale, to open it on getgems</p>
+              <p>* click on an item on sale to open it on getgems</p>
             )
           }
           <div className="Scrollable">
@@ -116,7 +116,7 @@ export function NftItemsList() {
                   color: "grey",
                   textAlign: "center",
                 }}>{"You don't have any NFTs"}</p>
-                )
+              )
             }
 
             {
