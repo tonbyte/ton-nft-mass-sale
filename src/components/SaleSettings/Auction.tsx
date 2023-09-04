@@ -5,6 +5,7 @@ import { useUserContext } from '../../context/userContext';
 import { computeRoyaltyPercent } from '../../utils';
 
 const options = [
+    { value: '2', label: '2%' },
     { value: '3', label: '3%' },
     { value: '4', label: '4%' },
     { value: '5', label: '5%' },
@@ -149,7 +150,7 @@ export function Auction() {
             <p><b>Service fee:</b></p>
             <div className="Inline">
                 <Select options={options} 
-                    defaultValue={options[2]}
+                    defaultValue={options[3]}
                     onChange={handleInputServiceFeeChange}
                     isDisabled={user.deployingSales}/>
                 <p>{(startPrice / 100 * serviceFee).toFixed(2)} or more TON</p>
