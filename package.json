@@ -1,10 +1,13 @@
 {
+  "homepage": "http://tonbyte.github.io/ton-nft-mass-sale/",
   "name": "react-scratch-sample",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
   "scripts": {
     "start": "webpack-dev-server --open --mode development --hot",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "webpack --mode production"
   },
   "author": "dearjohndoe",
