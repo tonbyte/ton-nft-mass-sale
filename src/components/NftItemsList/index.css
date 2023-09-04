@@ -1,0 +1,68 @@
+
+.Nfts-list {
+    flex-wrap: wrap;
+    width: 65%;
+    height: 100%;
+    margin: 20px 10px 0 10px;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.Scrollable {
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    height: 90%;
+}
+
+.Nft-item {
+    width: 200px;
+    height: 300px;
+    margin: 10px;
+    border-radius: 10px;
+    border: 1px solid grey;
+    position: relative;
+    overflow: hidden; 
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Nft-item:hover {
+    cursor: pointer;
+    border: 1px solid black;
+    background-color: aliceblue;
+}
+
+.Nft-item img {
+    height: 80%;
+    width: 100%;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.Nft-item-p {
+    padding: 5px;
+    text-align: center;
+    font-size: 16px;
+    color: black;
+    margin-top: 10px;
+}
+
+.Mark {
+    position: absolute;
+    font-size: 30px;
+    top: -20px;
+    right: 10px;
+}
+
+.OnSale {
+    position: absolute;
+    font-size: 16px;
+    border-radius: 3px;
+    padding: 5px;
+    background-color: aquamarine;
+    border: 1px solid black;
+    top: -5px;
+    right: 10px;
+}
