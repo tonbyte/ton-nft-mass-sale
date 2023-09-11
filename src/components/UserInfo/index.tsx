@@ -24,6 +24,11 @@ export function UserData() {
     const [collectionAddress, setCollectionAddress] = useState<string>("");
     const [isTestnet, setIsTestnet] = useState<boolean>(false);
 
+    const handleSetMnemonic = (value: string) => {
+        const trimmed = value.replace(/\s+/g, ' ').trim();
+        setMnemonic(trimmed);
+    };
+
     const handleUserData = async () => {
         setError("");
         if (mnemonic === "") {
@@ -83,10 +88,10 @@ export function UserData() {
     }
 
     const handleInputSeedChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setMnemonic(event.target.value);
+        handleSetMnemonic(event.target.value);
     };
     const handleSeedPaste = (event: React.ClipboardEvent) => {
-        setMnemonic(event.clipboardData.getData('text'));
+        handleSetMnemonic(event.clipboardData.getData('text'));
     };
 
     const handleInputWalletTypeChange = (newValue: { value: string, label: string }) => {
@@ -117,7 +122,7 @@ export function UserData() {
                     </div>
 
                     <p><b>Enter seed:</b></p>
-                    <input type="text" 
+                    <input type="text"
                         onChange={handleInputSeedChange}
                         onPaste={handleSeedPaste} />
 
